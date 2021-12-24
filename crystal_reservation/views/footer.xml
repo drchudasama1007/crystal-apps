@@ -33,7 +33,7 @@
                             <p>
                                 <t t-esc="res_company.email"/>
                             </p>
-                            <a href="/contactus" class="btn text-white pl-3 pr-3" style="background:red;">
+                            <a href="https://crystalvillage.ch/formulaire/" class="btn text-white pl-3 pr-3" style="background:red;">
                                 Nous contacter
                             </a>
                         </div>
