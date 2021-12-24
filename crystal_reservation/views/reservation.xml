@@ -1,0 +1,140 @@
+<odoo>
+    <data>
+
+        <template id="reservation_template" name="Reservation">
+            <t t-call="website.layout">
+                <div class="row">
+                    <div class="col-md-12 text-center mt48 mb24">
+                        <h1 class="text-black">
+                            <span class="" style="border-bottom:2px solid red;">Reservation</span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="table_reservation bg-white row">
+                    <div class="col-md-1"/>
+                    <div class="col-md-10">
+                        <div id="tables" class="main-ctn animated fadeIn"/>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <form method="post" action="/thankyou" enctype="multipart/form-data" id="RegistrationForm">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row reservation_form mt48">
+                            <div class="col-md-1"/>
+                            <div class="col-md-10 mt48 mb24">
+                                <h1 class="text-black text-center">
+                                    <span class="" style="border-bottom:2px solid red;">Reservation Form</span>
+                                </h1>
+                                <div class="row mt48">
+                                    <div class="col-md-6 col-6">
+                                        <div class="form-input">
+                                            <label for="firstname">
+                                                First Name
+                                            </label>
+                                            <input type="text" class="form-control" name="firstname"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div class="form-input">
+                                            <label for="lastname">
+                                                Last Name
+                                            </label>
+                                            <input type="text" class="form-control" name="lastname"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12 mt16">
+                                        <div class="form-input">
+                                            <label for="calendar">
+                                                Calendar
+                                            </label>
+                                            <input type="datetime-local" class="form-control" name="calendar"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="email">
+                                                Email
+                                            </label>
+                                            <input type="text" class="form-control" name="email"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="phone">
+                                                Phone
+                                            </label>
+                                            <input type="text" class="form-control" name="phone"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="no_guest">
+                                                Number Of Guests
+                                            </label>
+                                            <input type="text" class="form-control" name="no_guest"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="no_children">
+                                                Number Of Children
+                                            </label>
+                                            <input type="text" class="form-control" name="no_children"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12 mt16">
+                                        <div class="form-input">
+                                            <label for="no_children">
+                                                Dome
+                                            </label>
+                                            <select name="dome" class="form-control">
+                                                <option value="">Select Dome..</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-center col-12 mt32 mb48">
+                                        <div class="form-input">
+                                            <button type="submit"
+                                                    class="btn text-white pl-5 pr-5 pt8 pb8 font-weight-bold"
+                                                    style="background:red;">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </t>
+        </template>
+
+        <template id="thankyou_template" name="Thank you">
+            <t t-call="website.layout">
+                <div class="RegistrationThankYou"
+                     style="background-image: url('/crystal_reservation/static/src/img/thankyou.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
+                    <div class="row">
+                        <div class="col-md-12 col-12 mt200 mb200 pt112 pb112 reservation_thank_you_div text-center text-white">
+                            <h1 class="merci">Merci!</h1>
+                            <h1 class="reservation_no">Your Reservation No.
+                                <t t-esc="reservation.seq"/>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

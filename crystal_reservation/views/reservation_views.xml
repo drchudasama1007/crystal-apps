@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+
+        <!-- reservation Form view -->
+        <record model="ir.ui.view" id="reservation_form_view">
+            <field name="name">Reservation Form</field>
+            <field name="model">reservation.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1 class="font-weight-bold">
+                            <field name="seq" readonly="1"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="first_name"/>
+                                <field name="lastname"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                            </group>
+                            <group>
+                                <field name="calendar"/>
+                                <field name="no_guest"/>
+                                <field name="no_children"/>
+                                <field name="dome"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- reservation list view -->
+        <record model="ir.ui.view" id="reservation_tree_view">
+            <field name="name">Reservation list</field>
+            <field name="model">reservation.reservation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="first_name"/>
+                    <field name="lastname"/>
+                    <field name="calendar"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="no_guest"/>
+                    <field name="no_children"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions reservation -->
+        <record model="ir.actions.act_window" id="reservation_action_window">
+            <field name="name">Reservation</field>
+            <field name="res_model">reservation.reservation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Top menu item -->
+        <menuitem id="reservation_menu_root" name="Reservation"/>
+        <!-- actions -->
+        <menuitem name="Reservation" id="crystal_reservation" parent="crystal_reservation.reservation_menu_root"
+                  action="crystal_reservation.reservation_action_window"/>
+
+
+    </data>
+</odoo>

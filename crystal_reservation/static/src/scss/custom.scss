@@ -1,0 +1,34 @@
+.reservation_form{
+    input, select{
+        height: 45px;
+        background: #f1f1f1;
+    }
+}
+.RegistrationThankYou{
+    .merci{
+        font-size: 115px;
+        font-weight: bold;
+    }
+    .reservation_no{
+        font-size: 75px;
+        font-weight: bold;
+    }
+}
+.o_footer_copyright{
+    display: none;
+}
+
+@media (max-width: 767px){
+    .RegistrationThankYou{
+        .reservation_thank_you_div{
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        .merci{
+            font-size: 65px;
+        }
+        .reservation_no{
+            font-size: 35px;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--=============================== Footer Style-1 =============================-->
+    <template id="customize_footer_style" inherit_id="website.footer_custom" active="True">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <section class="custom_footer bg-black">
+                <footer class="container">
+                    <div class="row pt96 pb96">
+                        <div class="col-md-4">
+                            <a href="/" class="pb16">
+                                <img t-att-src="'/logo.png?company=%s' % res_company.id"
+                                     style="width:70%;height:120px;"/>
+                            </a>
+                            <p class="text-white mt16">
+                                vos bulles d’oxygène au milieu des montagnes valaisannes
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="text-white pb24">
+                                RENDEZ NOUS VISITE
+                            </h4>
+                            <p class="text-white mb0">
+                                <t t-esc="res_company.street"/>
+                                <br/>
+                                <t t-esc="res_company.city"/>
+                                <t t-if="res_company.state_id">,
+                                    <t t-esc="res_company.state_id.name"/>
+                                </t>
+                                <t t-if="res_company.zip">,
+                                    <t t-esc="res_company.zip"/>
+                                </t>
+                            </p>
+                            <p>
+                                <t t-esc="res_company.email"/>
+                            </p>
+                            <a href="/contactus" class="btn text-white pl-3 pr-3" style="background:red;">
+                                Nous contacter
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="text-white pb24">
+                                HORAIRES D'OUVERTURES
+                            </h4>
+                            <p class="text-white mb0">
+                                Lundi-Dimanche:
+                            </p>
+                            <p class="text-white">
+                                8h00: 0h00
+                            </p>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </xpath>
+    </template>
+
+</odoo>
