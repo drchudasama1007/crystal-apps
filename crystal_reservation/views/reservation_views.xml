@@ -19,9 +19,10 @@
                                 <field name="phone"/>
                             </group>
                             <group>
-                                <field name="calendar"/>
-                                <field name="no_guest"/>
-                                <field name="no_children"/>
+                                <field name="reservation_date"/>
+                                <field name="time_slot"/>
+                                <field name="no_guest_sel"/>
+                                <field name="no_children_sel"/>
                                 <field name="dome"/>
                             </group>
                         </group>
@@ -36,13 +37,15 @@
             <field name="model">reservation.reservation</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="seq"/>
                     <field name="first_name"/>
                     <field name="lastname"/>
-                    <field name="calendar"/>
+                    <field name="reservation_date"/>
+                    <field name="time_slot"/>
                     <field name="email"/>
                     <field name="phone"/>
-                    <field name="no_guest"/>
-                    <field name="no_children"/>
+                    <field name="no_guest_sel"/>
+                    <field name="no_children_sel"/>
                 </tree>
             </field>
         </record>

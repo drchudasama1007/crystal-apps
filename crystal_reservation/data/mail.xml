@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- MAIL TEMPLATE FOR Reservation -->
+         <record id="mail_template_reservation" model="mail.template">
+            <field name="name">Reservation</field>
+            <field name="model_id" ref="crystal_reservation.model_reservation_reservation"/>
+            <field name="subject">${object.seq}</field>
+            <field name="email_from">${object.email | safe}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" style="width:100%; margin:0px auto;">
+                    <tbody>
+                        <tr>
+                            <td valign="top" style="text-align: left; font-size: 14px;">
+                                Bonjour,
+                                <br/>
+                                <br/>
+                                <br/>
+                                Votre réservation no ${object.seq} pour  ${object.first_name}  ${object.lastname} le ${object.reservation_date} à ${object.time_slot} est confirmée.
+                                <br/>
+                                <br/>
+                                Nous nous réjouissons de vous accueillir à Crystal Village !
+                                <br/>
+                                <br/>
+                                Cordialement.
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                Team Crystal Village
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

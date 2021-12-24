@@ -13,7 +13,7 @@
                 <div class="table_reservation bg-white row">
                     <div class="col-md-1"/>
                     <div class="col-md-10">
-                        <div id="tables" class="main-ctn animated fadeIn"/>
+                        <img src="/crystal_reservation/static/src/img/table.jpeg" class="img img-responsive"/>
                     </div>
                 </div>
 
@@ -22,8 +22,8 @@
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <div class="row reservation_form mt48">
                             <div class="col-md-1"/>
-                            <div class="col-md-10 mt48 mb24">
-                                <h1 class="text-black text-center">
+                            <div class="col-md-10 mb24">
+                                <h1 class="text-black text-center d-none">
                                     <span class="" style="border-bottom:2px solid red;">Reservation Form</span>
                                 </h1>
                                 <div class="row mt48">
@@ -32,7 +32,7 @@
                                             <label for="firstname">
                                                 First Name
                                             </label>
-                                            <input type="text" class="form-control" name="firstname"/>
+                                            <input type="text" class="form-control" name="firstname" required="required"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-6">
@@ -40,15 +40,30 @@
                                             <label for="lastname">
                                                 Last Name
                                             </label>
-                                            <input type="text" class="form-control" name="lastname"/>
+                                            <input type="text" class="form-control" name="lastname" required="required"/>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 col-12 mt16">
+                                    <div class="col-md-6 col-6 mt16">
                                         <div class="form-input">
                                             <label for="calendar">
                                                 Calendar
                                             </label>
-                                            <input type="datetime-local" class="form-control" name="calendar"/>
+                                            <input id="reservation_date" type="date" class="form-control" name="reservation_date" required="required" min="{new Date().toISOString().split('T')[0]}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="calendar">
+                                                Time Slot
+                                            </label>
+                                            <select name="time_slot" class="form-control" required="required">
+                                                <option value="">Select Time Slot</option>
+                                                <option value="11:45">11:45</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="16:30">16:30</option>
+                                                <option value="18:45">18:45</option>
+                                                <option value="21:00">21:00</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-6 mt16">
@@ -56,7 +71,7 @@
                                             <label for="email">
                                                 Email
                                             </label>
-                                            <input type="text" class="form-control" name="email"/>
+                                            <input type="text" class="form-control" name="email" required="required"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-6 mt16">
@@ -64,7 +79,7 @@
                                             <label for="phone">
                                                 Phone
                                             </label>
-                                            <input type="text" class="form-control" name="phone"/>
+                                            <input type="text" class="form-control" name="phone" required="required"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-6 mt16">
@@ -72,7 +87,16 @@
                                             <label for="no_guest">
                                                 Number Of Guests
                                             </label>
-                                            <input type="text" class="form-control" name="no_guest"/>
+<!--                                            <input type="text" class="form-control" name="no_guest"/>-->
+                                            <select name="no_guest_sel" class="form-control" required="required">
+                                                <option value="">Select Number Of Guests</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-6 mt16">
@@ -80,7 +104,16 @@
                                             <label for="no_children">
                                                 Number Of Children
                                             </label>
-                                            <input type="text" class="form-control" name="no_children"/>
+<!--                                            <input type="text" class="form-control" name="no_children"/>-->
+                                            <select name="no_children_sel" class="form-control">
+                                                <option value="">Select Number Of Children</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12 mt16">
@@ -88,7 +121,7 @@
                                             <label for="no_children">
                                                 Dome
                                             </label>
-                                            <select name="dome" class="form-control">
+                                            <select name="dome" class="form-control" required="required">
                                                 <option value="">Select Dome..</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -125,12 +158,16 @@
                 <div class="RegistrationThankYou"
                      style="background-image: url('/crystal_reservation/static/src/img/thankyou.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
                     <div class="row">
-                        <div class="col-md-12 col-12 mt200 mb200 pt112 pb112 reservation_thank_you_div text-center text-white">
-                            <h1 class="merci">Merci!</h1>
-                            <h1 class="reservation_no">Your Reservation No.
-                                <t t-esc="reservation.seq"/>
-                            </h1>
+                        <div class="col-md-2 col-2"/>
+                        <div class="col-md-8 col-8 mt80 mb80 pt80 pb80 reservation_thank_you_div text-center text-white">
+                            <h1 class="reservation_no">Merci pour votre réservation !</h1>
+                            <h1 class="reservation_no">Vous allez recevoir la confirmation par email dans les prochaines minutes !</h1>
+                            <h1 class="reservation_no pt32">Nous nous réjouissons de vous accueillir à Crystal Village !</h1>
+<!--                            <h1 class="reservation_no">Your Reservation No. RES1234-->
+<!--                                <t t-esc="reservation.seq"/>-->
+<!--                            </h1>-->
                         </div>
+                        <div class="col-md-2 col-2"/>
                     </div>
                 </div>
             </t>

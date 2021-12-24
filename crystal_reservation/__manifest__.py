@@ -22,6 +22,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data.xml',
+        'data/mail.xml',
         'views/assets.xml',
         'views/reservation.xml',
         'views/reservation_views.xml',

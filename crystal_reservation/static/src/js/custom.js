@@ -121,3 +121,9 @@ $(document).on("click", ".table", function () {
   $(this).addClass("animated bounce");
   console.log("BOUNCE!");
 });
+
+$('#reservation_date').datepicker({
+    format: 'dd M yyyy',
+    autoclose: true,
+    minDate: 0,
+});
