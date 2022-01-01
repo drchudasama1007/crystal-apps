@@ -17,6 +17,7 @@
                                 <field name="lastname"/>
                                 <field name="email"/>
                                 <field name="phone"/>
+                                <field name="create_date"/>
                                 <field name="start_date" invisible="1"/>
                                 <field name="end_date" invisible="1"/>
                             </group>
@@ -53,9 +54,10 @@
                     <field name="time_slot"/>
                     <field name="email"/>
                     <field name="phone"/>
+                     <field name="dome"/>
                     <field name="no_guest_sel"/>
                     <field name="no_children_sel"/>
-                    <field name="dome"/>
+
                 </tree>
             </field>
         </record>

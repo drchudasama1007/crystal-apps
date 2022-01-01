@@ -37,3 +37,19 @@ class CrystalReservation(http.Controller):
             reservation.id, force_send=True, email_values={"email_to": reservation.email}
         )
         return http.request.render('crystal_reservation.thankyou_template', {'reservation': reservation})
+
+    @http.route(['/check/slot'], type='json', auth="public", method='post', website=True)
+    def check_slot(self, **post):
+        print("============imgbackground========",post)
+        if post.get('time_slot'):
+            reservation_date = datetime.strptime(post.get('reservation_date'), '%Y-%m-%d').date()
+            time_slot = post.get('time_slot')
+            imgbackground = post.get('imgbackground')
+            reservation = request.env['reservation.reservation'].sudo().search(
+                [('reservation_date', '=', reservation_date), ('time_slot', '=', time_slot),
+                 ('dome', '=', imgbackground)])
+            if reservation:
+                return False
+            else:
+                return True
+        return True
