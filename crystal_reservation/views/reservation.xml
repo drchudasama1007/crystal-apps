@@ -10,7 +10,7 @@
                         </h1>
                     </div>
                 </div>
-                <div class="table_reservation bg-white row">
+                <div class="table_reservation bg-white row d-none">
                     <div class="col-md-1"/>
                     <div class="col-md-10">
                         <img src="/crystal_reservation/static/src/img/table.jpeg" class="img img-responsive"/>
