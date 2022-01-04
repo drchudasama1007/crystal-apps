@@ -25,7 +25,7 @@ class CrystalReservation(http.Controller):
             'email': post.get('email'),
             'phone': post.get('phone'),
             'no_guest_sel': post.get('no_guest_sel') if post.get('no_guest_sel') else False,
-            'no_children_sel': post.get('no_children_sel') if post.get('no_children_sel') else False,
+            # 'no_children_sel': post.get('no_children_sel') if post.get('no_children_sel') else False,
             'time_slot': post.get('time_slot') if post.get('time_slot') else False,
             'reservation_date': post.get('reservation_date') if post.get('reservation_date') else False,
             'dome': post.get('imgbackground') if post.get('imgbackground') else False,

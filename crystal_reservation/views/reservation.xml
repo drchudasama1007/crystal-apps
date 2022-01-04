@@ -260,10 +260,12 @@
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                                 <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-6 mt16">
+                                    <div class="col-md-6 col-6 mt16 d-none">
                                         <div class="form-input">
                                             <label for="no_children">
                                                 Number Of Children

@@ -22,7 +22,7 @@ class crystal_reservation(models.Model):
     no_guest = fields.Char("Number Of Guests")
     no_children = fields.Char("Number Of Children")
     dome = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('9', '9'), ('10', '10')], tracking=True)
-    no_guest_sel = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6')],string="Number Of Guests", tracking=True)
+    no_guest_sel = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'),('7', '7'), ('8', '8')],string="Number Of Guests", tracking=True)
     no_children_sel = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6')],string="Number Of Children", tracking=True)
     time_slot = fields.Selection([('11:45', '11:45'),('14:00', '14:00'),('16:30', '16:30'),('18:45', '18:45'),('21:00', '21:00')],string="Time Slot", tracking=True)
 

@@ -28,7 +28,7 @@
                                 <field name="reservation_date" required="1"/>
                                 <field name="time_slot" required="1"/>
                                 <field name="no_guest_sel"/>
-                                <field name="no_children_sel"/>
+                                <field name="no_children_sel" invisible="1"/>
                                 <field name="dome"/>
                                 <field name="full_name" invisible="1"/>
                             </group>
@@ -59,7 +59,7 @@
                     <field name="phone"/>
                      <field name="dome"/>
                     <field name="no_guest_sel"/>
-                    <field name="no_children_sel"/>
+                    <field name="no_children_sel" invisible="1"/>
 
                 </tree>
             </field>
@@ -75,7 +75,6 @@
                     <field name="email"/>
                     <field name="phone"/>
                     <field name="no_guest_sel"/>
-                    <field name="no_children_sel"/>
                     <field name="dome"/>
                 </calendar>
             </field>
