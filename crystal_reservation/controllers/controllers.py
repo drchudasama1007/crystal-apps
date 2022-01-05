@@ -28,7 +28,7 @@ class CrystalReservation(http.Controller):
             # 'no_children_sel': post.get('no_children_sel') if post.get('no_children_sel') else False,
             'time_slot': post.get('time_slot') if post.get('time_slot') else False,
             'reservation_date': post.get('reservation_date') if post.get('reservation_date') else False,
-            'dome': post.get('imgbackground') if post.get('imgbackground') else False,
+            # 'dome': post.get('imgbackground') if post.get('imgbackground') else False,
             # 'dome': post.get('dome'),
         })
         mail_template_reservation = request.env.ref('crystal_reservation.mail_template_reservation',

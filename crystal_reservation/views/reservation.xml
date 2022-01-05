@@ -31,7 +31,7 @@
                 <div class="container">
                     <form method="post" action="/thankyou" enctype="multipart/form-data" id="RegistrationForm">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                        <div class="row reservation_form mt48">
+                        <div class="row reservation_form">
                             <div class="col-md-1"/>
                             <div class="col-md-10 mb24">
                                 <h1 class="text-black text-center d-none">
@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
 
-                                     <div class="col-md-12 col-12 pt16">
+                                     <div class="col-md-12 col-12 pt16 d-none">
                                         <div class="form-input">
                                             <label for="imgbackground">
                                                 Select Demo
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="parent">
+                                    <div class="parent d-none">
                                         <div class="row">
                                             <div class='col text-center dome_img'>
                                                 <input type="radio" name="imgbackground" id="img1"
@@ -135,7 +135,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="parent">
+                                    <div class="parent d-none">
                                         <div class="row">
                                             <div class='col text-center dome_img'>
                                                 <input type="radio" name="imgbackground" id="img6"
