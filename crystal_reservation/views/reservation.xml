@@ -3,10 +3,11 @@
 
         <template id="reservation_template" name="Reservation">
             <t t-call="website.layout">
-                <div class="row">
+                <section class="reservation_section" style="background-image: url('/crystal_reservation/static/src/img/bg_res.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
+                <div class="row d-none">
                     <div class="col-md-12 text-center mt48 mb24">
                         <h1 class="text-black">
-                            <span class="" style="border-bottom:2px solid red;">Reservation</span>
+                            <span class="text-white" style="border-bottom:2px solid red;">Reservation</span>
                         </h1>
                     </div>
                 </div>
@@ -17,18 +18,18 @@
                     </div>
                 </div>
 
-<!--                <div class="RegistrationThankYou"-->
-<!--                     style="background-image: url('/crystal_reservation/static/src/img/thankyou.jpeg');background-repeat: no-repeat;background-size: 100% 100%">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-2 col-2"/>-->
-<!--                        <div class="col-md-8 col-8 mt160 mb160 pt160 pb160 reservation_thank_you_div text-center text-white">-->
+                <div class="RegistrationThankYou"
+                     style="background-image: url('/crystal_reservation/static/src/img/bg_res.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
+                    <div class="row">
+                        <div class="col-md-2 col-2"/>
+                        <div class="col-md-8 col-8 mt160 mb160 pt160 pb160 reservation_thank_you_div text-center text-white">
 <!--                            <h1 class="reservation_no" style="font-size: 80px;">Sold For Tonight !</h1>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-2 col-2"/>-->
-<!--                    </div>-->
-<!--                </div>-->
+                        </div>
+                        <div class="col-md-2 col-2"/>
+                    </div>
+                </div>
 
-                <div class="container">
+                <div class="container d-none">
                     <form method="post" action="/thankyou" enctype="multipart/form-data" id="RegistrationForm">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <div class="row reservation_form">
@@ -41,7 +42,7 @@
                                     <div class="col-md-6 col-6">
                                         <div class="form-input">
                                             <label for="firstname">
-                                                First Name
+                                                Prénom
                                             </label>
                                             <input type="text" class="form-control" name="firstname"
                                                    required="required"/>
@@ -50,7 +51,7 @@
                                     <div class="col-md-6 col-6">
                                         <div class="form-input">
                                             <label for="lastname">
-                                                Last Name
+                                                Nom de famille
                                             </label>
                                             <input type="text" class="form-control" name="lastname"
                                                    required="required"/>
@@ -205,10 +206,52 @@
                                         </div>
                                     </div>
 
+                                     <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="no_children">
+                                                Dome
+                                            </label>
+                                            <select name="dome" class="form-control" required="required">
+                                                <option value="">Select Dome..</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="no_guest">
+                                                Nombre d'invités
+                                            </label>
+                                            <!--                                            <input type="text" class="form-control" name="no_guest"/>-->
+                                            <select name="no_guest_sel" class="form-control" required="required">
+                                                <option value="">Select Number Of Guests</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
                                     <div class="col-md-6 col-6 mt16">
                                         <div class="form-input">
                                             <label for="calendar">
-                                                Calendar
+                                                Calendrier
                                             </label>
                                             <input id="reservation_date" type="date" class="form-control"
                                                    name="reservation_date" required="required"
@@ -218,7 +261,7 @@
                                     <div class="col-md-6 col-6 mt16">
                                         <div class="form-input">
                                             <label for="calendar">
-                                                Time Slot
+                                                Heure
                                             </label>
                                             <select id="time_slot" name="time_slot" class="form-control" required="required">
                                                 <option value="">Select Time Slot</option>
@@ -241,30 +284,12 @@
                                     <div class="col-md-6 col-6 mt16">
                                         <div class="form-input">
                                             <label for="phone">
-                                                Phone
+                                                Téléphoner
                                             </label>
                                             <input type="text" class="form-control" name="phone" required="required"/>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-6 mt16">
-                                        <div class="form-input">
-                                            <label for="no_guest">
-                                                Number Of Guests
-                                            </label>
-                                            <!--                                            <input type="text" class="form-control" name="no_guest"/>-->
-                                            <select name="no_guest_sel" class="form-control" required="required">
-                                                <option value="">Select Number Of Guests</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                            </select>
-                                        </div>
-                                    </div>
+
                                     <div class="col-md-6 col-6 mt16 d-none">
                                         <div class="form-input">
                                             <label for="no_children">
@@ -316,6 +341,7 @@
                         </div>
                     </form>
                 </div>
+                </section>
             </t>
         </template>
 
