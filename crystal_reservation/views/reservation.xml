@@ -4,7 +4,7 @@
         <template id="reservation_template" name="Reservation">
             <t t-call="website.layout">
                 <section class="reservation_section" style="background-image: url('/crystal_reservation/static/src/img/bg_res.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
-                <div class="row d-none">
+                <div class="row">
                     <div class="col-md-12 text-center mt48 mb24">
                         <h1 class="text-black">
                             <span class="text-white" style="border-bottom:2px solid red;">Reservation</span>
@@ -18,7 +18,7 @@
                     </div>
                 </div>
 
-                <div class="RegistrationThankYou"
+                <div class="RegistrationThankYou d-none"
                      style="background-image: url('/crystal_reservation/static/src/img/bg_res.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
                     <div class="row">
                         <div class="col-md-2 col-2"/>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <div class="container d-none">
+                <div class="container">
                     <form method="post" action="/thankyou" enctype="multipart/form-data" id="RegistrationForm">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <div class="row reservation_form">
