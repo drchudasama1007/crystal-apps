@@ -3,7 +3,7 @@
 
         <template id="reservation_template" name="Reservation">
             <t t-call="website.layout">
-                <section class="reservation_section" style="background-image: url('/crystal_reservation/static/src/img/bg_res.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
+                <section class="reservation_section" style="background-image: url('/crystal_reservation/static/src/img/reservation_bg.png');background-repeat: no-repeat;background-size: 100% 100%">
                 <div class="row">
                     <div class="col-md-12 text-center mt48 mb24">
                         <h1 class="text-black">
