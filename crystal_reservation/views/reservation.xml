@@ -212,7 +212,7 @@
                                                 Dome
                                             </label>
                                             <select name="dome" class="form-control" required="required">
-                                                <option value="">Select Dome..</option>
+                                                <option value="">sélectionner le dôme..</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -234,7 +234,7 @@
                                             </label>
                                             <!--                                            <input type="text" class="form-control" name="no_guest"/>-->
                                             <select name="no_guest_sel" class="form-control" required="required">
-                                                <option value="">Select Number Of Guests</option>
+                                                <option value="">sélectionner le nombre d'invités</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -264,7 +264,7 @@
                                                 Heure
                                             </label>
                                             <select id="time_slot" name="time_slot" class="form-control" required="required">
-                                                <option value="">Select Time Slot</option>
+                                                <option value="">sélectionner l'heure</option>
                                                 <option value="11:45">11:45</option>
                                                 <option value="14:00">14:00</option>
                                                 <option value="16:30">16:30</option>
