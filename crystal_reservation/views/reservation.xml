@@ -291,7 +291,7 @@
                                     <div class="col-md-6 col-6 mt16">
                                         <div class="form-input">
                                             <label for="phone">
-                                                Téléphoner
+                                                Téléphone
                                             </label>
                                             <input type="text" class="form-control" name="phone" required="required"/>
                                         </div>
