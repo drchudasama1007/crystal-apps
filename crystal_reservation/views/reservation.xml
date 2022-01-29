@@ -1,7 +1,7 @@
 <odoo>
     <data>
 
-        <template id="reservation_template" name="Reservation">
+        <template id="reservation_update_template" name="Reservation">
             <t t-call="website.layout">
                 <section class="reservation_section" style="background-image: url('/crystal_reservation/static/src/img/reservation_bg.png');background-repeat: no-repeat;background-size: 100% 100%">
                 <div class="row">
@@ -36,8 +36,15 @@
                             <div class="col-md-1"/>
                             <div class="col-md-10 mb24">
                                 <h1 class="text-black text-center d-none">
-                                    <span class="" style="border-bottom:2px solid red;">Reservation Form</span>
+                                    <span class="" style="border-bottom:2px solid red;">Réserver</span>
                                 </h1>
+
+                                <div t-if="request.params.get('error_msg')"
+                                     class="form-group alert alert-danger"
+                                     role="alert" style="margin: 15px;">
+                                    <t t-esc="request.params.get('error_msg')"/>
+                                </div>
+
                                 <div class="row mt48">
                                     <div class="col-md-6 col-6">
                                         <div class="form-input">
@@ -332,7 +339,352 @@
                                             <button type="submit"
                                                     class="btn text-white pl-5 pr-5 pt8 pb8 font-weight-bold"
                                                     style="background:red;">
-                                                Submit
+                                                Envoyer
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </section>
+            </t>
+        </template>
+
+        <template id="reservation_template" name="Reservation">
+            <t t-call="website.layout">
+                <section class="reservation_section" style="background-image: url('/crystal_reservation/static/src/img/reservation_bg.png');background-repeat: no-repeat;background-size: 100% 100%">
+                <div class="row">
+                    <div class="col-md-12 text-center mt48 mb24">
+                        <h1 class="text-black">
+                            <span class="text-white" style="border-bottom:2px solid red;">Reservation</span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="table_reservation bg-white row d-none">
+                    <div class="col-md-1"/>
+                    <div class="col-md-10">
+                        <img src="/crystal_reservation/static/src/img/table.jpeg" class="img img-responsive"/>
+                    </div>
+                </div>
+
+                <div class="RegistrationThankYou d-none"
+                     style="background-image: url('/crystal_reservation/static/src/img/bg_res.jpeg');background-repeat: no-repeat;background-size: 100% 100%">
+                    <div class="row">
+                        <div class="col-md-2 col-2"/>
+                        <div class="col-md-8 col-8 mt160 mb160 pt160 pb160 reservation_thank_you_div text-center text-white">
+<!--                            <h1 class="reservation_no" style="font-size: 80px;">Sold For Tonight !</h1>-->
+                        </div>
+                        <div class="col-md-2 col-2"/>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <form method="post" action="/thankyou" enctype="multipart/form-data" id="RegistrationForm">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row reservation_form">
+                            <div class="col-md-1"/>
+                            <div class="col-md-10 mb24">
+                                <h1 class="text-black text-center d-none">
+                                    <span class="" style="border-bottom:2px solid red;">Réserver</span>
+                                </h1>
+
+                                <div class="row mt48">
+                                    <div class="col-md-6 col-6">
+                                        <div class="form-input">
+                                            <label for="firstname">
+                                                Prénom
+                                            </label>
+                                            <input type="text" class="form-control" name="firstname"
+                                                   required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div class="form-input">
+                                            <label for="lastname">
+                                                Nom de famille
+                                            </label>
+                                            <input type="text" class="form-control" name="lastname"
+                                                   required="required"/>
+                                        </div>
+                                    </div>
+
+                                     <div class="col-md-12 col-12 pt16 d-none">
+                                        <div class="form-input">
+                                            <label for="imgbackground">
+                                                Select Demo
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="parent d-none">
+                                        <div class="row">
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img1"
+                                                       class="d-none imgbgchk" value="1" checked="checked"/>
+                                                <label for="img1">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive "/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 1
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img2"
+                                                       class="d-none imgbgchk" value="2"/>
+                                                <label for="img2">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive "/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 2
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img3"
+                                                       class="d-none imgbgchk" value="3"/>
+                                                <label for="img3">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive dome_img"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 3
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img4"
+                                                       class="d-none imgbgchk" value="4"/>
+                                                <label for="img4">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 4
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img5"
+                                                       class="d-none imgbgchk" value="5"/>
+                                                <label for="img5">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 5
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="parent d-none">
+                                        <div class="row">
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img6"
+                                                       class="d-none imgbgchk" value="6"/>
+                                                <label for="img6">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 6
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img7"
+                                                       class="d-none imgbgchk" value="7"/>
+                                                <label for="img7">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 7
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img8"
+                                                       class="d-none imgbgchk" value="8"/>
+                                                <label for="img8">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 8
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img9"
+                                                       class="d-none imgbgchk" value="9"/>
+                                                <label for="img9">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 9
+                                                </label>
+                                            </div>
+                                            <div class='col text-center dome_img'>
+                                                <input type="radio" name="imgbackground" id="img10"
+                                                       class="d-none imgbgchk" value="10"/>
+                                                <label for="img10">
+                                                    <img src="/crystal_reservation/static/src/img/table.png" class="img img-responsive"/>
+                                                    <div class="tick_container">
+                                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                                    </div>
+                                                </label>
+                                                <label for="imgbackground">
+                                                    Dome 10
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="no_children">
+                                                Dome
+                                            </label>
+                                            <select name="dome" class="form-control" required="required">
+                                                <option value="">sélectionner le dôme..</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="no_guest">
+                                                Nombre d'invités
+                                            </label>
+                                            <!--                                            <input type="text" class="form-control" name="no_guest"/>-->
+                                            <select name="no_guest_sel" class="form-control" required="required">
+                                                <option value="">sélectionner le nombre d'invités</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="calendar">
+                                                Calendrier
+                                            </label>
+                                            <input id="reservation_date" type="date" class="form-control"
+                                                   name="reservation_date" required="required"
+                                                   min="{new Date().toISOString().split('T')[0]}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="calendar">
+                                                Heure
+                                            </label>
+                                            <select id="time_slot" name="time_slot" class="form-control" required="required">
+                                                <option value="">sélectionner l'heure</option>
+                                                <option value="11:45">11:45</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="16:30">16:30</option>
+                                                <option value="18:45">18:45</option>
+                                                <option value="21:00">21:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="email">
+                                                Email
+                                            </label>
+                                            <input type="text" class="form-control" name="email" required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6 mt16">
+                                        <div class="form-input">
+                                            <label for="phone">
+                                                Téléphone
+                                            </label>
+                                            <input type="text" class="form-control" name="phone" required="required"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-6 mt16 d-none">
+                                        <div class="form-input">
+                                            <label for="no_children">
+                                                Number Of Children
+                                            </label>
+                                            <!--                                            <input type="text" class="form-control" name="no_children"/>-->
+                                            <select name="no_children_sel" class="form-control">
+                                                <option value="">Select Number Of Children</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                            </select>
+                                        </div>
+                                    </div>
+<!--                                    <div class="col-md-12 col-12 mt16">-->
+<!--                                        <div class="form-input">-->
+<!--                                            <label for="no_children">-->
+<!--                                                Dome-->
+<!--                                            </label>-->
+<!--                                            <select name="dome" class="form-control" required="required">-->
+<!--                                                <option value="">Select Dome..</option>-->
+<!--                                                <option value="1">1</option>-->
+<!--                                                <option value="2">2</option>-->
+<!--                                                <option value="3">3</option>-->
+<!--                                                <option value="4">4</option>-->
+<!--                                                <option value="5">5</option>-->
+<!--                                                <option value="6">6</option>-->
+<!--                                                <option value="7">7</option>-->
+<!--                                                <option value="8">8</option>-->
+<!--                                                <option value="9">9</option>-->
+<!--                                                <option value="10">10</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="col-md-12 text-center col-12 mt32 mb48">
+                                        <div class="form-input">
+                                            <button type="submit"
+                                                    class="btn text-white pl-5 pr-5 pt8 pb8 font-weight-bold"
+                                                    style="background:red;">
+                                                Envoyer
                                             </button>
                                         </div>
                                     </div>

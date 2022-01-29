@@ -10,7 +10,7 @@ class CrystalReservation(http.Controller):
 
     @http.route('/reservation', type='http', auth="public", website=True)
     def crystal_reservation_page(self, **post):
-        return http.request.render('crystal_reservation.reservation_template', {})
+        return http.request.render('crystal_reservation.reservation_update_template', {})
 
     @http.route('/thankyou', type='http', auth="public", website=True)
     def thankyou_page(self, **post):
@@ -18,6 +18,13 @@ class CrystalReservation(http.Controller):
         # calendar = datetime.strptime(post.get('calendar'), "%Y-%m-%dT%H:%M") - timedelta(hours=5, minutes=30)
         # if calendar:
         #     calendar = datetime.strftime(calendar, '%Y-%m-%d %H:%M')
+        exist_reservation = request.env['reservation.reservation'].sudo().search(
+            [('reservation_date', '=', post.get('reservation_date')), ('time_slot', '=', post.get('time_slot')),
+             ('dome', '=', post.get('dome'))])
+        print("===========exist_reservation====",exist_reservation)
+        if exist_reservation:
+            return request.redirect('/reservation?error_msg=%s' % _('Désolé ... Ce dôme/ temps déjà réservé! Veuillez essayer avec un dôme/heure différent.'))
+
         reservation = request.env['reservation.reservation'].sudo().create({
             'first_name': post.get('firstname'),
             'lastname': post.get('lastname'),

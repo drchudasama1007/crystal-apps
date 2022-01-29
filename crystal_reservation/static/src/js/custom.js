@@ -12,7 +12,7 @@ odoo.define("crystal_reservation.custom", function (require) {
         console.log("=========click=====2=======")
         $('#time_slot').val('')
     })
-
+/*
 
     $('#time_slot').click(function () {
         var reservation_date = $('#reservation_date').val()
@@ -41,6 +41,6 @@ odoo.define("crystal_reservation.custom", function (require) {
         }
     })
 
-
+*/
 
 })
